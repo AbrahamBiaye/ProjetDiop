@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Site</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* styles.css */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #0073e6;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin-top: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+  transition: color 0.2s;
+}
+
+nav ul li a:hover {
+  color: #ccc;
+}
+
+.articles {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.articles ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.articles li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.articles li:hover {
+  transform: scale(1.02);
+}
+
+.articles h2 {
+  margin: 0;
+  color: #0073e6;
+}
+
+.articles h2 a {
+  text-decoration: none;
+  color: #0073e6;
+  transition: color 0.2s;
+}
+
+.articles h2 a:hover {
+  color: #005bb5;
+}
+
+.articles p {
+  color: #666;
+}
+
+.articles small {
+  color: #999;
+  display: block;
+  margin-top: 10px;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #0073e6;
+  font-weight: bold;
+  margin: 0 10px;
+  transition: color 0.2s;
+}
+
+.pagination a:hover {
+  color: #005bb5;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Derniers Articles</h1>
+    <!-- Navigation des catégories -->
+    <nav>
+      <ul>
+        <% categories.forEach(category => { %>
+          <li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
+        <% }) %>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="articles">
+    <ul>
+      <% articles.forEach(article => { %>
+        <li>
+          <h2><a href="/articles/<%= article.id %>"><%= article.title %></a></h2>
+          <p><%= article.description %></p>
+          <small><%= article.date %></small>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+
+  <div class="pagination">
+    <% if (page > 1) { %>
+      <a href="/?page=<%= page - 1 %>">Précédent</a>
+    <% } %>
+    <% if (page < totalPages) { %>
+      <a href="/?page=<%= page + 1 %>">Suivant</a>
+    <% } %>
+  </div>
+</body>
+</html>

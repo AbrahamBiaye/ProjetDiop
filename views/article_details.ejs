@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= article.title %></title>
+<style>
+
+  /* styles.css */
+/* public/css/styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.article-details {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.article-details p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.article-details .content {
+  margin-bottom: 20px;
+}
+
+.article-details small {
+  color: #999;
+  display: block;
+  margin-top: 10px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #0073e6;
+  font-weight: bold;
+  display: inline-block;
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: #005bb5;
+}
+
+</style>
+</head>
+<body>
+  <header>
+    <h1><%= article.title %></h1>
+  </header>
+
+  <div class="article-details">
+    <p><%= article.description %></p>
+    <div class="content">
+      <%= article.content %>
+    </div>
+    <small><%= article.date %></small>
+  </div>
+
+  <footer>
+    <a href="/">Retour à la liste des articles</a>
+  </footer>
+</body>
+</html>
